@@ -89,3 +89,18 @@ The project now includes custom React Flow nodes for industrial assets.
    - Verify handles are positioned correctly on the nodes.
    - Verify you can still drag nodes around.
 
+## 8. Verifying Network Layout (AGRV-11)
+The project now includes an automated network layout generator.
+
+### Steps to Verify
+1. Start the development server: `npm run dev`
+2. Open [http://localhost:3000](http://localhost:3000)
+3. **Verify Hierarchy**:
+   - Locate the **Main Reservoir** node (Triangle/Trapezoid) at the top-left (approx).
+   - Locate the **Main Pump** node (Circle) connected to the Reservoir.
+   - Locate a **Grid** of Tanks/Junctions connected to the Pump.
+4. **Verify Connectivity**:
+   - Ensure there are no isolated nodes floating far away from the main cluster.
+   - Every node should have at least one edge connecting it to the system.
+5. **Verify Count**:
+   - Visually confirm there are at least 10 nodes on the canvas.
