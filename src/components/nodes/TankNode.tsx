@@ -1,7 +1,14 @@
 import React, { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
 
-const TankNode = ({ data }: { data: any }) => {
+interface TankNodeProps {
+    data: {
+        label: string;
+        level?: number;
+    };
+}
+
+const TankNode = ({ data }: TankNodeProps) => {
     const level = data.level !== undefined ? data.level : 50; // Default 50%
 
     return (

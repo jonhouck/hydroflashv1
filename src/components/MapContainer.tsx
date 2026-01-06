@@ -31,8 +31,8 @@ const initialEdges = [
 ];
 
 export default function MapContainer() {
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+    const [nodes, , onNodesChange] = useNodesState(initialNodes);
+    const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
     return (
         <div style={{ height: '100%', width: '100%' }} className="react-flow-wrapper">

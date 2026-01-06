@@ -1,7 +1,13 @@
 import React, { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
 
-const PumpNode = ({ data }: { data: any }) => {
+interface PumpNodeProps {
+    data: {
+        label: string;
+    };
+}
+
+const PumpNode = ({ data }: PumpNodeProps) => {
     return (
         <div className="px-4 py-2 shadow-md rounded-full bg-white border-2 border-green-500 w-24 h-24 flex items-center justify-center relative">
             <div className="flex flex-col items-center">

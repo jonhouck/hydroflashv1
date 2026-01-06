@@ -1,7 +1,13 @@
 import React, { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
 
-const ReservoirNode = ({ data }: { data: any }) => {
+interface ReservoirNodeProps {
+    data: {
+        label: string;
+    };
+}
+
+const ReservoirNode = ({ data }: ReservoirNodeProps) => {
     return (
         <div className="px-4 py-2 shadow-md rounded-md bg-white border-2 border-blue-500">
             <div className="flex flex-col items-center">

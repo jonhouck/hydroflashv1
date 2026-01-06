@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
-import { Handle, Position } from '@xyflow/react';
-
-const JunctionNode = ({ data }: { data: any }) => {
+import { Handle, Position } from '@xyflow/react'; const JunctionNode = () => {
     return (
         <div className="w-6 h-6 rounded-full bg-gray-800 border-2 border-white shadow-sm flex items-center justify-center relative">
             {/* 
