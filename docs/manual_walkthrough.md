@@ -45,7 +45,23 @@ To verify that the schemas strictly enforce the data model:
 2. Ensure that `tests/unit/schema.test.ts` passes.
 
 
-## 5. Verifying Telemetry API (AGRV-8)
+## 5. Verifying React Flow Integration (AGRV-9)
+The project now includes a basic React Flow integration.
+
+### Steps to Verify
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. **Verify the Map**: You should see a grid background representing the empty canvas.
+4. **Zoom and Pan**:
+   - Scroll to zoom in and out.
+   - Click and drag to pan around the empty canvas.
+   - Verify the controls (zoom in, zoom out, fit view, lock) are visible in the bottom-left corner.
+
+
+## 6. Verifying Telemetry API (AGRV-8)
 The project now includes a mock telemetry generator and API endpoint.
 
 ### Testing the API Endpoint
@@ -53,3 +69,4 @@ The project now includes a mock telemetry generator and API endpoint.
 2. Open a terminal and run the curl command: `curl http://localhost:3000/api/telemetry`
 3. Verify the output is a JSON object containing keys like `res-001`, `pump-001`.
 4. Run the command multiple times and verify that the values (pressure, flow, level) change slightly within variance.
+
