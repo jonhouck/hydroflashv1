@@ -104,3 +104,18 @@ The project now includes an automated network layout generator.
    - Every node should have at least one edge connecting it to the system.
 5. **Verify Count**:
    - Visually confirm there are at least 10 nodes on the canvas.
+
+## 9. Verifying Pump Control Logic (AGRV-12)
+The project now includes interactive Pump nodes that can be toggled ON/OFF.
+
+### Steps to Verify
+1. Start the development server: `npm run dev`
+2. Open [http://localhost:3000](http://localhost:3000)
+3. **Locate a Pump**: Find a Pump node (Circle with triangle arrow).
+4. **Initial State**: Verify the pump border is **Gray** (OFF) and the arrow is **Gray**.
+5. **Toggle ON**:
+   - Click the Pump node.
+   - Verify the border turns **Green** (ON) and the arrow turns **Green**.
+6. **Toggle OFF**:
+   - Click the Pump node again.
+   - Verify the visuals return to **Gray** (OFF).

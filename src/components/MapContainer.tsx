@@ -20,8 +20,28 @@ const nodeTypes = {
 const { initialNodes, initialEdges } = generateNetworkLayout();
 
 export default function MapContainer() {
-    const [nodes, , onNodesChange] = useNodesState(initialNodes);
+    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+
+    // function to handle node clicks
+    const onNodeClick = (_event: React.MouseEvent, node: any) => {
+        if (node.type === 'pump') {
+            setNodes((nds) =>
+                nds.map((nd) => {
+                    if (nd.id === node.id) {
+                        return {
+                            ...nd,
+                            data: {
+                                ...nd.data,
+                                isOn: !nd.data.isOn,
+                            },
+                        };
+                    }
+                    return nd;
+                })
+            );
+        }
+    };
 
     return (
         <div style={{ height: '100%', width: '100%' }} className="react-flow-wrapper">
@@ -30,6 +50,7 @@ export default function MapContainer() {
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
+                onNodeClick={onNodeClick}
                 nodeTypes={nodeTypes}
                 fitView
                 panOnScroll
