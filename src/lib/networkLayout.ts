@@ -23,7 +23,7 @@ export const generateNetworkLayout = (): NetworkLayout => {
     nodes.push({
         id: pumpId,
         position: { x: 300, y: 100 },
-        data: { label: 'Main Pump' },
+        data: { label: 'Main Pump', isOn: false },
         type: 'pump',
     });
 
