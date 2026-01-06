@@ -3,12 +3,9 @@ import { render, screen } from '@testing-library/react'
 import Home from '../page'
 
 describe('Home', () => {
-    it('renders a heading', () => {
-        render(<Home />)
-
-        const heading = screen.getByRole('heading', { level: 1 })
-
-        expect(heading).toBeDefined()
-        expect(heading.textContent).toContain('ANTIGRAVITY')
+    it('renders the map container', () => {
+        const { container } = render(<Home />)
+        const wrapper = container.querySelector('.react-flow-wrapper')
+        expect(wrapper).toBeTruthy()
     })
 })
