@@ -44,3 +44,12 @@ To verify that the schemas strictly enforce the data model:
 1. Run the unit tests: `npm run test`
 2. Ensure that `tests/unit/schema.test.ts` passes.
 
+
+## 5. Verifying Telemetry API (AGRV-8)
+The project now includes a mock telemetry generator and API endpoint.
+
+### Testing the API Endpoint
+1. Start the development server: `npm run dev`
+2. Open a terminal and run the curl command: `curl http://localhost:3000/api/telemetry`
+3. Verify the output is a JSON object containing keys like `res-001`, `pump-001`.
+4. Run the command multiple times and verify that the values (pressure, flow, level) change slightly within variance.
