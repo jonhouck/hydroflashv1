@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ReactFlow, Controls, Background, useNodesState, useEdgesState } from '@xyflow/react';
+import { ReactFlow, Controls, Background, useNodesState, useEdgesState, Node as FlowNode } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import ReservoirNode from './nodes/ReservoirNode';
 import PumpNode from './nodes/PumpNode';
@@ -24,7 +24,7 @@ export default function MapContainer() {
     const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
     // function to handle node clicks
-    const onNodeClick = (_event: React.MouseEvent, node: any) => {
+    const onNodeClick = (_event: React.MouseEvent, node: FlowNode) => {
         if (node.type === 'pump') {
             setNodes((nds) =>
                 nds.map((nd) => {

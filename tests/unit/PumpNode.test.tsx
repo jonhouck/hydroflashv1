@@ -4,7 +4,9 @@ import { describe, it, expect } from 'vitest';
 import PumpNode from '@/components/nodes/PumpNode';
 import { ReactFlowProvider } from '@xyflow/react';
 
-const renderPumpNode = (props: any) => {
+import { ComponentProps } from 'react';
+
+const renderPumpNode = (props: ComponentProps<typeof PumpNode>) => {
     return render(
         <ReactFlowProvider>
             <PumpNode {...props} />
