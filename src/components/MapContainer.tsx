@@ -9,6 +9,7 @@ import TankNode from './nodes/TankNode';
 import JunctionNode from './nodes/JunctionNode';
 
 import { generateNetworkLayout } from '@/lib/networkLayout';
+import { useInterval } from '@/hooks/useInterval';
 
 const nodeTypes = {
     reservoir: ReservoirNode,
@@ -42,6 +43,31 @@ export default function MapContainer() {
             );
         }
     };
+
+    useInterval(async () => {
+        try {
+            const response = await fetch('/api/telemetry');
+            const data = await response.json();
+
+            setNodes((nds) =>
+                nds.map((node) => {
+                    const sensorData = data[node.id];
+                    if (sensorData) {
+                        return {
+                            ...node,
+                            data: {
+                                ...node.data,
+                                ...sensorData,
+                            },
+                        };
+                    }
+                    return node;
+                })
+            );
+        } catch (error) {
+            console.error('Failed to fetch telemetry:', error);
+        }
+    }, 2000);
 
     return (
         <div style={{ height: '100%', width: '100%' }} className="react-flow-wrapper">

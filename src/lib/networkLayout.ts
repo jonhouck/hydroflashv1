@@ -10,7 +10,7 @@ export const generateNetworkLayout = (): NetworkLayout => {
     const edges: Edge[] = [];
 
     // 1. Root Reservoir
-    const reservoirId = 'res-1';
+    const reservoirId = 'res-001';
     nodes.push({
         id: reservoirId,
         position: { x: 100, y: 100 },
@@ -19,7 +19,7 @@ export const generateNetworkLayout = (): NetworkLayout => {
     });
 
     // 2. Main Pump
-    const pumpId = 'pump-1';
+    const pumpId = 'pump-001';
     nodes.push({
         id: pumpId,
         position: { x: 300, y: 100 },
@@ -46,7 +46,11 @@ export const generateNetworkLayout = (): NetworkLayout => {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             const isTank = (r + c) % 3 === 0; // some mix of tanks and junctions
-            const nodeId = `grid-${r}-${c}`;
+            // Align the first tank with the API data
+            let nodeId = `grid-${r}-${c}`;
+            if (isTank && r === 0 && c === 0) {
+                nodeId = 'tank-001';
+            }
 
             nodes.push({
                 id: nodeId,
