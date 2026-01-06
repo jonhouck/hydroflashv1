@@ -9,7 +9,7 @@ test.describe('Network Layout', () => {
 
         // Check for nodes
         const nodes = page.locator('.react-flow__node');
-        await expect(nodes).toHaveCount(0); // Initially 0 before js loads? No, playwright waits. 
+
         // Actually, react flow nodes rendered in DOM.
         // Let's waitFor at least one node.
         await page.waitForSelector('.react-flow__node');
