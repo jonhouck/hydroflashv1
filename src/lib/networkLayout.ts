@@ -41,7 +41,7 @@ export const generateNetworkLayout = (): NetworkLayout => {
     const spacingX = 200;
     const spacingY = 150;
 
-    let previousNodeId = pumpId;
+
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
