@@ -31,3 +31,16 @@ Ensure the following jobs complete successfully:
 - If **lint** fails: Run `npm run lint` locally to fix style issues.
 - If **test** fails: Run `npm run test` locally to debug unit tests.
 - If **e2e** fails: Run `npm run test:e2e` locally. You may need to run `npx playwright install` first.
+
+## 4. Verifying Data Schemas (AGRV-7)
+The project now includes Zod schemas for validating Water Network data.
+
+### Inspecting Types
+1. Navigate to `src/lib/types.ts` to view the `Node`, `Link`, and `WaterNetwork` TypeScript definitions.
+2. Navigate to `src/lib/schemas.ts` to view the corresponding Zod schemas.
+
+### Running Schema Validation Tests
+To verify that the schemas strictly enforce the data model:
+1. Run the unit tests: `npm run test`
+2. Ensure that `tests/unit/schema.test.ts` passes.
+
