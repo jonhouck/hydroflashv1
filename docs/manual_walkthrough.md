@@ -68,5 +68,24 @@ The project now includes a mock telemetry generator and API endpoint.
 1. Start the development server: `npm run dev`
 2. Open a terminal and run the curl command: `curl http://localhost:3000/api/telemetry`
 3. Verify the output is a JSON object containing keys like `res-001`, `pump-001`.
-4. Run the command multiple times and verify that the values (pressure, flow, level) change slightly within variance.
+7. Run the command multiple times and verify that the values (pressure, flow, level) change slightly within variance.
+
+
+## 7. Verifying Custom Asset Nodes (AGRV-10)
+The project now includes custom React Flow nodes for industrial assets.
+
+### Steps to Verify
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. **Verify Node Visuals**:
+   - **Reservoir**: Looks like a triangle/trapezoid or has distinct styling (Blue border).
+   - **Pump**: Looks like a circle with a pump symbol (Green border).
+   - **Tank**: Looks like a tank with a fill level indicator.
+   - **Junction**: Small distinct node (Gray circle).
+4. **Interact**:
+   - Verify handles are positioned correctly on the nodes.
+   - Verify you can still drag nodes around.
 
