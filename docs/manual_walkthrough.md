@@ -119,3 +119,17 @@ The project now includes interactive Pump nodes that can be toggled ON/OFF.
 6. **Toggle OFF**:
    - Click the Pump node again.
    - Verify the visuals return to **Gray** (OFF).
+
+## 10. Verifying Live Data Connection (AGRV-13)
+The project now connects to the live telemetry API to update node data.
+
+### Steps to Verify
+1. Start the development server: `npm run dev`
+2. Open [http://localhost:3000](http://localhost:3000)
+3. **Observe Values**:
+   - Trigger a pump toggle (click it) or wait 2 seconds.
+   - Verify that the map updates (the code fetches data).
+   - Open the Network tab in Developer Tools.
+4. **Network Tab**:
+   - Confirm that a request to `/api/telemetry` is made approximately every 2 seconds.
+   - Verify the response contains data for `res-001` and `pump-001`.
